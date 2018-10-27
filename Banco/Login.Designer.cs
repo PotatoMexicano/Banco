@@ -35,10 +35,10 @@
             this.lb_conta = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox_senha = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn_Account = new System.Windows.Forms.Button();
             this.pb_Logo = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).BeginInit();
             this.SuspendLayout();
@@ -91,10 +91,11 @@
             this.btn_Login.TabIndex = 3;
             this.btn_Login.Text = "Entrar";
             this.btn_Login.UseVisualStyleBackColor = true;
+            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.textBox_senha);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btn_Account);
             this.panel1.Controls.Add(this.pb_Logo);
@@ -108,6 +109,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(782, 337);
             this.panel1.TabIndex = 5;
+            // 
+            // textBox_senha
+            // 
+            this.textBox_senha.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_senha.Location = new System.Drawing.Point(336, 53);
+            this.textBox_senha.MaxLength = 4;
+            this.textBox_senha.Name = "textBox_senha";
+            this.textBox_senha.PasswordChar = ' ';
+            this.textBox_senha.Size = new System.Drawing.Size(75, 23);
+            this.textBox_senha.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(258, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 18);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Senha:";
             // 
             // btn_Account
             // 
@@ -130,26 +151,6 @@
             this.pb_Logo.TabIndex = 5;
             this.pb_Logo.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(258, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 18);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Senha:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(336, 53);
-            this.textBox1.MaxLength = 4;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = ' ';
-            this.textBox1.Size = new System.Drawing.Size(75, 23);
-            this.textBox1.TabIndex = 2;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,6 +162,7 @@
             this.MinimumSize = new System.Drawing.Size(798, 376);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
@@ -179,7 +181,7 @@
         private System.Windows.Forms.Button btn_Account;
         private System.Windows.Forms.PictureBox pb_Logo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_senha;
     }
 }
 
