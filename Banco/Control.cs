@@ -35,10 +35,10 @@ namespace Banco
             command.CommandText = "SELECT * FROM usuarios where agencia = @agencia AND conta = @conta AND senha = @senha";
 
             
-            MySqlDataReader reader = command.ExecuteReader();
-            if (reader.Read())
+            MySqlDataReader r = command.ExecuteReader();
+            if (r.Read())
             {
-                Usuario usuario = new Usuario(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetString(6), reader.GetInt32(7));
+                Usuario usuario = new Usuario(r.GetInt32(0), r.GetString(1), r.GetString(2), r.GetString(3), r.GetString(4), r.GetInt32(5), r.GetInt32(6), r.GetString(7), r.GetInt32(8), r.GetChar(9), r.GetInt32(10));
                 conn.Close();
                 return usuario;
 

@@ -140,6 +140,7 @@
             this.btn_Account.TabIndex = 4;
             this.btn_Account.Text = "Abrir uma conta";
             this.btn_Account.UseVisualStyleBackColor = true;
+            this.btn_Account.Click += new System.EventHandler(this.btn_Account_Click);
             // 
             // pb_Logo
             // 
@@ -162,6 +163,7 @@
             this.MinimumSize = new System.Drawing.Size(798, 376);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -35,5 +35,17 @@ namespace Banco
                 MessageBox.Show("NO");
             }
         }
+
+        private void btn_Account_Click(object sender, EventArgs e)
+        {
+            NovaConta novaConta = new NovaConta();
+            this.Hide();
+            novaConta.ShowDialog();
+        }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
