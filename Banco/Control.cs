@@ -50,13 +50,24 @@ namespace Banco
             }
         }
 
-        static public void cadastrar(string nome, string sobrenome, string cpf, string rg, int agencia, string senha, int tipo, char sexo, int idade)
+        static public void cadastrar(string nome, string sobrenome, string cpf, string rg, int agencia, string senha, int tipo, char sexo, int idade, int conta)
         {
+
             MySqlCommand signup = new MySqlCommand();
             conn.Open();
             signup.Connection = conn;
-            //Parametros
-            signup.CommandText = "INSERT INTO usuarios VALUES ('','','','','','','','','','');";
+            signup.Parameters.AddWithValue("@nome", nome);
+            signup.Parameters.AddWithValue("@sobrenome", sobrenome);
+            signup.Parameters.AddWithValue("@cpf", cpf);
+            signup.Parameters.AddWithValue("@rg", rg);
+            signup.Parameters.Add("@agencia", MySqlDbType.Int32).Value = agencia;
+            signup.Parameters.AddWithValue("@senha", senha);
+            signup.Parameters.Add("@tipo", MySqlDbType.Int32).Value = tipo;
+            signup.Parameters.Add("@sexo", MySqlDbType.VarChar).Value = sexo;
+            signup.Parameters.Add("@idade", MySqlDbType.Int32).Value = idade;
+            signup.Parameters.Add("@conta", MySqlDbType.Int32).Value = conta;
+
+            signup.CommandText = "INSERT INTO usuarios VALUES ('',@nome,@sobrenome,@cpf,@rg,@conta,@agencia,@senha,@tipo,@sexo,@idade)";
             signup.ExecuteNonQuery();
         }
     }
