@@ -49,5 +49,15 @@ namespace Banco
                 return null;
             }
         }
+
+        static public void cadastrar(string nome, string sobrenome, string cpf, string rg, int agencia, string senha, int tipo, char sexo, int idade)
+        {
+            MySqlCommand signup = new MySqlCommand();
+            conn.Open();
+            signup.Connection = conn;
+            //Parametros
+            signup.CommandText = "INSERT INTO usuarios VALUES ('','','','','','','','','','');";
+            signup.ExecuteNonQuery();
+        }
     }
 }
