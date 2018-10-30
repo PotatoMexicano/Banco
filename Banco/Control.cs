@@ -69,6 +69,7 @@ namespace Banco
 
             signup.CommandText = "INSERT INTO usuarios VALUES ('',@nome,@sobrenome,@cpf,@rg,@conta,@agencia,@senha,@tipo,@sexo,@idade)";
             signup.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }

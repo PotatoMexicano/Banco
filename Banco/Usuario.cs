@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banco
 {
-    class Usuario
+    public class Usuario
     {
         private int id;
         private string nome;

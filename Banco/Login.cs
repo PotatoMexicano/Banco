@@ -28,7 +28,9 @@ namespace Banco
             Usuario usuario = Control.login(Convert.ToInt32(txtBox_agencia.Text), Convert.ToInt32(textBox_Conta.Text), textBox_senha.Text);
             if (usuario != null)
             {
-                MessageBox.Show("Bem vindo "+usuario.Nome);
+                Main menu = new Main(usuario);
+                this.Hide();
+                menu.ShowDialog();
             }
             else
             {

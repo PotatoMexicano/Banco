@@ -32,10 +32,15 @@ namespace Banco
             if (combo_sexo.Text == "Masculino") { sexo = 'M'; } else { sexo = 'F'; }
 
             Random rnd = new Random();
-            int conta = rnd.Next(1111,9999);
+            int conta = rnd.Next(1111111, 9999999);
             
 
             Control.cadastrar(txt_nome.Text, txt_sobrenome.Text, txt_cpf.Text, txt_rg.Text, Convert.ToInt32(txt_agencia.Text), txt_senha.Text, tipo, sexo, Convert.ToInt32(txt_idade.Text), conta);
+            MessageBox.Show("Sua conta é: "+conta);
+
+            Login login = new Login();
+            this.Hide();
+            login.ShowDialog();
         }
     }
 }
