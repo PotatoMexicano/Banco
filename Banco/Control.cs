@@ -92,5 +92,17 @@ namespace Banco
                 return null;
             }
         }
+
+        static public void depositar(double valor, int id)
+        {
+            MySqlCommand dep = new MySqlCommand();
+            conn.Open();
+            dep.Connection = conn;
+            dep.Parameters.Add("@valor", MySqlDbType.Double).Value = valor;
+            dep.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            dep.CommandText = "UPDATE corrente SET saldo = saldo + @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id";
+            dep.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

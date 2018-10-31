@@ -54,6 +54,12 @@
     <Compile Include="Dados.Designer.cs">
       <DependentUpon>Dados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Deposito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito.Designer.cs">
+      <DependentUpon>Deposito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extrato.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     <Compile Include="Usuario.cs" />
     <EmbeddedResource Include="Dados.resx">
       <DependentUpon>Dados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deposito.resx">
+      <DependentUpon>Deposito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Extrato.resx">
       <DependentUpon>Extrato.cs</DependentUpon>

@@ -61,6 +61,7 @@
             this.depositoToolStripMenuItem.Name = "depositoToolStripMenuItem";
             this.depositoToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.depositoToolStripMenuItem.Text = "Deposito";
+            this.depositoToolStripMenuItem.Click += new System.EventHandler(this.depositoToolStripMenuItem_Click);
             // 
             // extratoToolStripMenuItem
             // 
@@ -87,6 +88,7 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Menu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

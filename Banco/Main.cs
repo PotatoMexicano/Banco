@@ -43,5 +43,19 @@ namespace Banco
             Extrato extrato = new Extrato(usuario);
             extrato.ShowDialog();
         }
+
+        private void depositoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Deposito deposito = new Deposito(usuario);
+            deposito.ShowDialog();
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+
+        }
     }
 }
