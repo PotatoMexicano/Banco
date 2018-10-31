@@ -22,7 +22,7 @@ namespace Banco
             
         }
         public void atualiza_label_saldo() {
-            conta = Control.extrato(usuario.Id);
+            conta = Control.Extrato(usuario.Id);
             label_money.Text = "R$ "+Convert.ToString(conta.Saldo);
         }
 
@@ -40,7 +40,7 @@ namespace Banco
                 {
                     if (MessageBox.Show("Confirma ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        Control.depositar(deposito, conta.Id_user);
+                        Control.Depositar(deposito, conta.Id_user);
                         atualiza_label_saldo();
                     }
                     else

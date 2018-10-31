@@ -25,7 +25,7 @@ namespace Banco
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            Usuario usuario = Control.login(Convert.ToInt32(txtBox_agencia.Text), Convert.ToInt32(textBox_Conta.Text), textBox_senha.Text);
+            Usuario usuario = Control.Login(Convert.ToInt32(txtBox_agencia.Text), Convert.ToInt32(textBox_Conta.Text), textBox_senha.Text);
             if (usuario != null)
             {
                 Main menu = new Main(usuario);

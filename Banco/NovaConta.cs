@@ -35,7 +35,7 @@ namespace Banco
             int conta = rnd.Next(1111111, 9999999);
             
 
-            Control.cadastrar(txt_nome.Text, txt_sobrenome.Text, txt_cpf.Text, txt_rg.Text, Convert.ToInt32(txt_agencia.Text), txt_senha.Text, tipo, sexo, Convert.ToInt32(txt_idade.Text), conta);
+            Control.Cadastrar(txt_nome.Text, txt_sobrenome.Text, txt_cpf.Text, txt_rg.Text, Convert.ToInt32(txt_agencia.Text), txt_senha.Text, tipo, sexo, Convert.ToInt32(txt_idade.Text), conta);
             MessageBox.Show("Sua conta é: "+conta);
 
             Login login = new Login();

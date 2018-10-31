@@ -17,7 +17,7 @@ namespace Banco
         {
             this.usuario = user;
             InitializeComponent();
-            Conta conta = Control.extrato(usuario.Id);
+            Conta conta = Control.Extrato(usuario.Id);
             label_money.Text = "R$ "+Convert.ToString(conta.Saldo);
         }
 
