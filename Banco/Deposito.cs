@@ -14,16 +14,33 @@ namespace Banco
     {
         Usuario usuario;
         Conta conta;
-        public Deposito(Usuario usuario)
+        int tipo;
+        public Deposito(Usuario usuario, int i)
         {
             this.usuario = usuario;
             InitializeComponent();
+            if (i == 0)
+            {
+                tipo = 0;
+            }
+            else
+            {
+                tipo = 1;
+            }
             atualiza_label_saldo();
+            
             
         }
         public void atualiza_label_saldo() {
-            conta = Control.Extrato(usuario.Id);
-            label_money.Text = "R$ "+Convert.ToString(conta.Saldo);
+            if (tipo == 0) {
+                conta = Control.Extrato(usuario.Id);
+                label_money.Text = "R$ " + Convert.ToString(conta.Saldo);
+            }
+            else
+            {
+                conta = Control.Extrato_Poup(usuario.Id);
+                label_money.Text = "R$ " + Convert.ToString(conta.Saldo);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,8 +57,16 @@ namespace Banco
                 {
                     if (MessageBox.Show("Confirma ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        Control.Depositar(deposito, conta.Id_user);
-                        atualiza_label_saldo();
+                        if (tipo == 0) {
+                            Control.Depositar(deposito, conta.Id_user, 0);
+                            atualiza_label_saldo();
+                        }
+                        else
+                        {
+                            Control.Depositar(deposito, conta.Id_user, 1);
+                            atualiza_label_saldo();
+
+                        }
                     }
                     else
                     {
@@ -55,6 +80,10 @@ namespace Banco
 
             }     
             
+        }
+
+        private void Deposito_FormClosing(object sender, FormClosingEventArgs e)
+        {
         }
     }
 }

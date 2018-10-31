@@ -128,6 +128,7 @@
             this.Name = "Deposito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Deposito";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Deposito_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

@@ -13,22 +13,27 @@ namespace Banco
     public partial class Main : Form
     {
         Usuario usuario;
-        Conta conta;
+        Conta conta_corrente;
+        Conta conta_poupança;
+        double total;
         public Main(Usuario user)
         {
             usuario = user;
             InitializeComponent();
+            Atualiza_saldo_geral();
+            
         }
-
-        private void Menu_Load(object sender, EventArgs e)
+        public void Atualiza_saldo_geral()
         {
-            conta = Control.Extrato(usuario.Id);
-            label_hi.Text = "Bem-Vindo " + usuario.Nome +" "+ usuario.Sobrenome;
-            label_saldo.Text = "R$ " + conta.Saldo;
-            label3.Text = Convert.ToString(conta.Ultima_alteracao.ToString("d/M/yyyy"));
+            conta_corrente = Control.Extrato(usuario.Id);
+            conta_poupança = Control.Extrato_Poup(usuario.Id);
+            total = conta_corrente.Saldo + conta_poupança.Saldo;
+            label_hi.Text = "Bem-Vindo " + usuario.Nome + " " + usuario.Sobrenome;
+            label_saldo.Text = "R$ " + total;
+            label3.Text = Convert.ToString(conta_corrente.Ultima_alteracao.ToString("d/M/yyyy"));
         }
 
-        private void dadosPessoaisToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DadosPessoaisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<Dados>().Count() > 0)
             {
@@ -42,18 +47,6 @@ namespace Banco
             
         }
 
-        private void extratoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Extrato extrato = new Extrato(usuario);
-            extrato.ShowDialog();
-        }
-
-        private void depositoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Deposito deposito = new Deposito(usuario);
-            deposito.ShowDialog();
-        }
-
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
             Login login = new Login();
@@ -62,10 +55,34 @@ namespace Banco
 
         }
 
-        private void saqueToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Saque saque = new Saque(usuario);
             saque.ShowDialog();
+        }
+
+        private void CorrenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Extrato extrato = new Extrato(usuario, 0);
+            extrato.ShowDialog();
+        }
+
+        private void PoupançaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Extrato extrato = new Extrato(usuario, 1);
+            extrato.ShowDialog();
+        }
+
+        private void CorrenteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Deposito deposito = new Deposito(usuario, 0);
+            deposito.ShowDialog();
+        }
+
+        private void PoupançaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Deposito deposito = new Deposito(usuario, 1);
+            deposito.ShowDialog();
         }
     }
 }

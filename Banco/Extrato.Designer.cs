@@ -68,7 +68,6 @@
             this.Name = "Extrato";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Extrato";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Extrato_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

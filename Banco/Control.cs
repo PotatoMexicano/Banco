@@ -93,14 +93,22 @@ namespace Banco
             }
         }
 
-        public static void Depositar(double valor, int id)
+        public static void Depositar(double valor, int id, int tipo)
         {
             MySqlCommand dep = new MySqlCommand();
             conn.Open();
             dep.Connection = conn;
             dep.Parameters.Add("@valor", MySqlDbType.Double).Value = valor;
             dep.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
-            dep.CommandText = "UPDATE corrente SET saldo = saldo + @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id";
+            if (tipo == 0 )
+            {
+                dep.CommandText = "UPDATE corrente SET saldo = saldo + @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id";
+            }
+            else
+            {
+                dep.CommandText = "UPDATE poupança SET saldo = saldo + @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id";
+            }
+            
             dep.ExecuteNonQuery();
             conn.Close();
         }
@@ -115,6 +123,28 @@ namespace Banco
             sacar.CommandText = "UPDATE corrente SET saldo = saldo - @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id";
             sacar.ExecuteNonQuery();
             conn.Close();
+        }
+
+        public static Conta Extrato_Poup(int id)
+        {
+            MySqlCommand poup = new MySqlCommand();
+            conn.Open();
+            poup.Connection = conn;
+            poup.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            poup.CommandText = "SELECT * FROM poupança WHERE id_usuario = @id";
+
+            MySqlDataReader r = poup.ExecuteReader();
+            if (r.Read())
+            {
+                Conta conta = new Conta(r.GetInt32(0), r.GetInt32(1), r.GetDouble(2), r.GetDateTime(3));
+                conn.Close();
+                return conta;
+            }
+            else
+            {
+                conn.Clone();
+                return null;
+            }
         }
     }
 }
