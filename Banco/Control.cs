@@ -11,7 +11,7 @@ namespace Banco
     {
         static MySqlConnection conn = new MySqlConnection("server=sql157.main-hosting.eu;port=3306;User Id=u736501739_team;database=u736501739_bank;password=Pimenta10");
 
-        static public bool conectar()
+        public static bool Conectar()
         {
             try
             {
@@ -24,7 +24,7 @@ namespace Banco
             }
         }
 
-        static public Usuario login(int agencia, int conta, string senha)
+        public static Usuario Login(int agencia, int conta, string senha)
         {
             MySqlCommand command = new MySqlCommand();
             conn.Open();
@@ -50,7 +50,7 @@ namespace Banco
             }
         }
 
-        static public void cadastrar(string nome, string sobrenome, string cpf, string rg, int agencia, string senha, int tipo, char sexo, int idade, int conta)
+        public static void Cadastrar(string nome, string sobrenome, string cpf, string rg, int agencia, string senha, int tipo, char sexo, int idade, int conta)
         {
 
             MySqlCommand signup = new MySqlCommand();
@@ -72,7 +72,7 @@ namespace Banco
             conn.Close();
         }
 
-        static public Conta extrato(int id)
+        public static Conta Extrato(int id)
         {
             MySqlCommand extrato = new MySqlCommand();
             conn.Open();
@@ -93,7 +93,7 @@ namespace Banco
             }
         }
 
-        static public void depositar(double valor, int id)
+        public static void Depositar(double valor, int id)
         {
             MySqlCommand dep = new MySqlCommand();
             conn.Open();
