@@ -88,7 +88,7 @@ namespace Banco
                 return conta;
             }
             else{
-                conn.Clone();
+                conn.Close();
                 return null;
             }
         }
