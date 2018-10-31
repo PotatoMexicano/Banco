@@ -34,7 +34,14 @@
             this.depositoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extratoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dadosPessoaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label_hi = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label_saldo = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -78,11 +85,75 @@
             this.dadosPessoaisToolStripMenuItem.Text = "Dados pessoais";
             this.dadosPessoaisToolStripMenuItem.Click += new System.EventHandler(this.dadosPessoaisToolStripMenuItem_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label_saldo);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label_hi);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 426);
+            this.panel1.TabIndex = 1;
+            // 
+            // label_hi
+            // 
+            this.label_hi.AutoSize = true;
+            this.label_hi.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_hi.Location = new System.Drawing.Point(12, 20);
+            this.label_hi.Name = "label_hi";
+            this.label_hi.Size = new System.Drawing.Size(270, 32);
+            this.label_hi.TabIndex = 0;
+            this.label_hi.Text = "Bem-Vindo Usuario";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 80);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Saldo:";
+            // 
+            // label_saldo
+            // 
+            this.label_saldo.AutoSize = true;
+            this.label_saldo.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_saldo.Location = new System.Drawing.Point(102, 80);
+            this.label_saldo.Name = "label_saldo";
+            this.label_saldo.Size = new System.Drawing.Size(34, 24);
+            this.label_saldo.TabIndex = 2;
+            this.label_saldo.Text = "R$";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(18, 108);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(178, 24);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Ultima visita:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(202, 108);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 24);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "label3";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -93,6 +164,8 @@
             this.Load += new System.EventHandler(this.Menu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,5 +178,11 @@
         private System.Windows.Forms.ToolStripMenuItem depositoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem extratoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dadosPessoaisToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label_hi;
+        private System.Windows.Forms.Label label_saldo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

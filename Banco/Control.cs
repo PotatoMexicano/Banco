@@ -104,6 +104,7 @@ namespace Banco
             dep.ExecuteNonQuery();
             conn.Close();
         }
+
         public static void Sacar(int id, double valor)
         {
             MySqlCommand sacar = new MySqlCommand();

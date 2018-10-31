@@ -13,6 +13,7 @@ namespace Banco
     public partial class Main : Form
     {
         Usuario usuario;
+        Conta conta;
         public Main(Usuario user)
         {
             usuario = user;
@@ -21,7 +22,10 @@ namespace Banco
 
         private void Menu_Load(object sender, EventArgs e)
         {
-
+            conta = Control.Extrato(usuario.Id);
+            label_hi.Text = "Bem-Vindo " + usuario.Nome +" "+ usuario.Sobrenome;
+            label_saldo.Text = "R$ " + conta.Saldo;
+            label3.Text = Convert.ToString(conta.Ultima_alteracao.ToString("d/M/yyyy"));
         }
 
         private void dadosPessoaisToolStripMenuItem_Click(object sender, EventArgs e)
