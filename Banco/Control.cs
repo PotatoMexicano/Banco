@@ -71,5 +71,26 @@ namespace Banco
             signup.ExecuteNonQuery();
             conn.Close();
         }
+
+        static public Conta extrato(int id)
+        {
+            MySqlCommand extrato = new MySqlCommand();
+            conn.Open();
+            extrato.Connection = conn;
+            extrato.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            extrato.CommandText = "SELECT * FROM corrente WHERE id_usuario = @id";
+
+            MySqlDataReader r = extrato.ExecuteReader();
+            if (r.Read())
+            {
+                Conta conta = new Conta(r.GetInt32(0), r.GetInt32(1), r.GetDouble(2), r.GetDateTime(3));
+                conn.Close();
+                return conta;
+            }
+            else{
+                conn.Clone();
+                return null;
+            }
+        }
     }
 }

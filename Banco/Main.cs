@@ -37,5 +37,11 @@ namespace Banco
             }
             
         }
+
+        private void extratoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Extrato extrato = new Extrato(usuario);
+            extrato.ShowDialog();
+        }
     }
 }

@@ -46,12 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conta.cs" />
     <Compile Include="Control.cs" />
     <Compile Include="Dados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dados.Designer.cs">
       <DependentUpon>Dados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extrato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extrato.Designer.cs">
+      <DependentUpon>Extrato.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -76,6 +83,9 @@
     <Compile Include="Usuario.cs" />
     <EmbeddedResource Include="Dados.resx">
       <DependentUpon>Dados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extrato.resx">
+      <DependentUpon>Extrato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

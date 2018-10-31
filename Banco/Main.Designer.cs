@@ -67,6 +67,7 @@
             this.extratoToolStripMenuItem.Name = "extratoToolStripMenuItem";
             this.extratoToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.extratoToolStripMenuItem.Text = "Extrato";
+            this.extratoToolStripMenuItem.Click += new System.EventHandler(this.extratoToolStripMenuItem_Click);
             // 
             // dadosPessoaisToolStripMenuItem
             // 
