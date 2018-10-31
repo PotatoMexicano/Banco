@@ -1,6 +1,6 @@
 ﻿namespace Banco
 {
-    partial class Deposito
+    partial class Saque
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Deposito));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Saque));
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label_money = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tb_deposito = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tb_saque = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label_money);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.tb_saque);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(406, 254);
+            this.panel1.TabIndex = 9;
             // 
             // label_money
             // 
@@ -59,25 +71,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Você possui:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(148, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 22);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Depositar:";
-            // 
-            // tb_deposito
-            // 
-            this.tb_deposito.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_deposito.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_deposito.Location = new System.Drawing.Point(109, 80);
-            this.tb_deposito.Name = "tb_deposito";
-            this.tb_deposito.Size = new System.Drawing.Size(190, 30);
-            this.tb_deposito.TabIndex = 5;
-            // 
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -86,48 +79,41 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(190, 48);
             this.button1.TabIndex = 6;
-            this.button1.Text = "Depositar";
+            this.button1.Text = "Sacar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label3
+            // label2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 232);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(349, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Nota: Os depositos não podem ultrapassar os R$ 1000 reais";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(168, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 22);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Sacar:";
             // 
-            // panel1
+            // tb_saque
             // 
-            this.panel1.Controls.Add(this.label_money);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.tb_deposito);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(406, 254);
-            this.panel1.TabIndex = 8;
+            this.tb_saque.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_saque.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_saque.Location = new System.Drawing.Point(109, 80);
+            this.tb_saque.Name = "tb_saque";
+            this.tb_saque.Size = new System.Drawing.Size(190, 30);
+            this.tb_saque.TabIndex = 5;
             // 
-            // Deposito
+            // Saque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 254);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
+            this.Location = new System.Drawing.Point(422, 293);
             this.MaximumSize = new System.Drawing.Size(422, 293);
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(422, 293);
-            this.Name = "Deposito";
+            this.Name = "Saque";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Deposito";
+            this.Text = "Saque";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -136,12 +122,11 @@
 
         #endregion
 
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label_money;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tb_deposito;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tb_saque;
     }
 }

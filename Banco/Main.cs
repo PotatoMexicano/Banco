@@ -57,5 +57,11 @@ namespace Banco
             this.Close();
 
         }
+
+        private void saqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Saque saque = new Saque(usuario);
+            saque.ShowDialog();
+        }
     }
 }

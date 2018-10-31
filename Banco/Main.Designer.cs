@@ -55,6 +55,7 @@
             this.saqueToolStripMenuItem.Name = "saqueToolStripMenuItem";
             this.saqueToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.saqueToolStripMenuItem.Text = "Saque";
+            this.saqueToolStripMenuItem.Click += new System.EventHandler(this.saqueToolStripMenuItem_Click);
             // 
             // depositoToolStripMenuItem
             // 

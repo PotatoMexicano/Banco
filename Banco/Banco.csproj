@@ -86,6 +86,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Saque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Saque.Designer.cs">
+      <DependentUpon>Saque.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs" />
     <EmbeddedResource Include="Dados.resx">
       <DependentUpon>Dados.cs</DependentUpon>
@@ -115,6 +121,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Saque.resx">
+      <DependentUpon>Saque.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

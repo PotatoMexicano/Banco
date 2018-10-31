@@ -104,5 +104,16 @@ namespace Banco
             dep.ExecuteNonQuery();
             conn.Close();
         }
+        public static void Sacar(int id, double valor)
+        {
+            MySqlCommand sacar = new MySqlCommand();
+            conn.Open();
+            sacar.Connection = conn;
+            sacar.Parameters.Add("@valor", MySqlDbType.Double).Value = valor;
+            sacar.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            sacar.CommandText = "UPDATE corrente SET saldo = saldo - @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id";
+            sacar.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }
