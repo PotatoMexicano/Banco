@@ -30,9 +30,7 @@ namespace Banco
             label_cpf.Text = usuario.Cpf.ToString();
             label_rg.Text = usuario.Rg.ToString();
             label_sexo.Text = usuario.Sexo.ToString();
-            label_idade.Text = usuario.Idade.ToString();
-
-            
+            label_idade.Text = usuario.Idade.ToString();   
 
 
 

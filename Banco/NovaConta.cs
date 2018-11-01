@@ -28,7 +28,7 @@ namespace Banco
         {
             int tipo;
             char sexo;
-            if (combo_tipo.Text == "Poupança") { tipo = 1; } else { tipo = 0; }
+            if (combo_tipo.Text == "Corrente") { tipo = 0; }else if (combo_tipo.Text == "Ambos") { tipo = 2; } else { tipo = 1; }
             if (combo_sexo.Text == "Masculino") { sexo = 'M'; } else { sexo = 'F'; }
 
             Random rnd = new Random();
@@ -36,6 +36,8 @@ namespace Banco
             
 
             Control.Cadastrar(txt_nome.Text, txt_sobrenome.Text, txt_cpf.Text, txt_rg.Text, Convert.ToInt32(txt_agencia.Text), txt_senha.Text, tipo, sexo, Convert.ToInt32(txt_idade.Text), conta);
+            Usuario usuario = Control.Login(Convert.ToInt32(txt_agencia.Text), conta, txt_senha.Text);
+            Control.Criar_Conta(tipo, usuario.Id);
             MessageBox.Show("Sua conta é: "+conta);
 
             Login login = new Login();

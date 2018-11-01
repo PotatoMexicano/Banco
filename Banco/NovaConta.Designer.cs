@@ -402,7 +402,8 @@
             this.combo_tipo.FormattingEnabled = true;
             this.combo_tipo.Items.AddRange(new object[] {
             "Corrente",
-            "Poupança"});
+            "Poupança",
+            "Ambos"});
             this.combo_tipo.Location = new System.Drawing.Point(3, 10);
             this.combo_tipo.Name = "combo_tipo";
             this.combo_tipo.Size = new System.Drawing.Size(197, 21);

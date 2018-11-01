@@ -67,8 +67,31 @@ namespace Banco
             signup.Parameters.Add("@idade", MySqlDbType.Int32).Value = idade;
             signup.Parameters.Add("@conta", MySqlDbType.Int32).Value = conta;
 
-            signup.CommandText = "INSERT INTO usuarios VALUES ('',@nome,@sobrenome,@cpf,@rg,@conta,@agencia,@senha,@tipo,@sexo,@idade)";
+            signup.CommandText = "INSERT INTO usuarios VALUES ('',@nome,@sobrenome,@cpf,@rg,@conta,@agencia,@senha,@tipo,@sexo,@idade,CURRENT_TIMESTAMP)";
             signup.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public static void Criar_Conta(int tipo, int id)
+        {
+            MySqlCommand cc = new MySqlCommand();
+            conn.Open();
+            cc.Connection = conn;
+            cc.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+
+            if (tipo == 0)
+            {
+                cc.CommandText = "INSERT INTO corrente VALUES ('',@id, 0, CURRENT_TIMESTAMP)";
+
+            }else if (tipo == 2)
+            {
+                cc.CommandText = "INSERT INTO corrente VALUES ('',@id, 0, CURRENT_TIMESTAMP); INSERT INTO poupança VALUES ('',@id, 0, CURRENT_TIMESTAMP)";
+            }
+            else
+            {
+                cc.CommandText = "INSERT INTO poupança VALUES ('',@id, 0, CURRENT_TIMESTAMP)";
+            }
+            cc.ExecuteNonQuery();
             conn.Close();
         }
 
