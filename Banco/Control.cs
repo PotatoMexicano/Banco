@@ -151,9 +151,20 @@ namespace Banco
             }
             else
             {
-                conn.Clone();
+                conn.Close();
                 return null;
             }
+        }
+
+        public static void Atualiza_Data_Login(int id)
+        {
+            MySqlCommand att = new MySqlCommand();
+            att.Connection = conn;
+            conn.Open();
+            att.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            att.CommandText = "UPDATE usuarios SET ultimo_acesso = CURRENT_TIMESTAMP WHERE id = @id";
+            att.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }

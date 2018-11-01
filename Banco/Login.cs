@@ -28,6 +28,7 @@ namespace Banco
             Usuario usuario = Control.Login(Convert.ToInt32(txtBox_agencia.Text), Convert.ToInt32(textBox_Conta.Text), textBox_senha.Text);
             if (usuario != null)
             {
+                Control.Atualiza_Data_Login(usuario.Id);
                 Main menu = new Main(usuario);
                 this.Hide();
                 menu.ShowDialog();
