@@ -14,16 +14,25 @@ namespace Banco
     {
         Usuario usuario;
         Conta conta;
-        public Saque(Usuario usuario)
+        int tipo;
+        public Saque(Usuario usuario, int tipo)
         {
             this.usuario = usuario;
+            this.tipo = tipo;
             InitializeComponent();
             atualiza_label_saldo();
         }
         public void atualiza_label_saldo()
         {
-            conta = Control.Extrato(usuario.Id);
-            label_money.Text = "R$ " + Convert.ToString(conta.Saldo);
+            if (tipo == 0) {
+                conta = Control.Extrato(usuario.Id);
+                label_money.Text = "R$ " + Convert.ToString(conta.Saldo);
+            }
+            else
+            {
+                conta = Control.Extrato_Poup(usuario.Id);
+                label_money.Text = "R$ " + Convert.ToString(conta.Saldo);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,7 +45,7 @@ namespace Banco
                 if (!(valor > conta.Saldo))
                 {
                     if (MessageBox.Show("Confirma ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                        Control.Sacar(usuario.Id, valor);
+                        Control.Sacar(usuario.Id, valor, tipo);
                         atualiza_label_saldo();
                     }
                     else

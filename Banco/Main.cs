@@ -25,12 +25,27 @@ namespace Banco
         }
         public void Atualiza_saldo_geral()
         {
-            conta_corrente = Control.Extrato(usuario.Id);
-            conta_poupança = Control.Extrato_Poup(usuario.Id);
-            total = conta_corrente.Saldo + conta_poupança.Saldo;
-            label_hi.Text = "Bem-Vindo " + usuario.Nome + " " + usuario.Sobrenome;
-            label_saldo.Text = "R$ " + total;
-            label3.Text = Convert.ToString(conta_corrente.Ultima_alteracao.ToString("d/M/yyyy"));
+            if (usuario.Tipo == 0)
+            {
+                conta_corrente = Control.Extrato(usuario.Id);
+                total = conta_corrente.Saldo;
+            }
+            else if(usuario.Tipo == 1)
+            {
+                conta_poupança = Control.Extrato_Poup(usuario.Id);
+                total = conta_poupança.Saldo;
+            }
+            else
+            {
+                conta_corrente = Control.Extrato(usuario.Id);
+                conta_poupança = Control.Extrato_Poup(usuario.Id);
+                total = conta_corrente.Saldo + conta_poupança.Saldo;
+            }
+
+                
+                label_hi.Text = "Bem-Vindo " + usuario.Nome + " " + usuario.Sobrenome;
+                label_saldo.Text = "R$ " + total;
+                label3.Text = Convert.ToString(usuario.Ultimo_acesso.ToString("d/M/yyyy"));
         }
 
         private void DadosPessoaisToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,8 +72,7 @@ namespace Banco
 
         private void SaqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Saque saque = new Saque(usuario);
-            saque.ShowDialog();
+            
         }
 
         private void CorrenteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,6 +97,35 @@ namespace Banco
         {
             Deposito deposito = new Deposito(usuario, 1);
             deposito.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            if (usuario.Tipo == 0)
+            {
+                poupançaToolStripMenuItem.Visible = false;
+                poupançaToolStripMenuItem1.Visible = false;
+                poupançaToolStripMenuItem2.Visible = false;
+            }
+            else if (usuario.Tipo == 1)
+            {
+                correnteToolStripMenuItem.Visible = false;
+                correnteToolStripMenuItem1.Visible = false;
+                correnteToolStripMenuItem2.Visible = false;
+                
+            }
+        }
+
+        private void correnteToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+                Saque saque = new Saque(usuario, 0);
+                saque.ShowDialog();
+        }
+
+        private void poupançaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+                Saque saque = new Saque(usuario, 1);
+                saque.ShowDialog();
         }
     }
 }

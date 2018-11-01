@@ -15,10 +15,10 @@ namespace Banco
 
         public Conta(int id, int id_user, double saldo, DateTime ultima_alteracao)
         {
-            this.Id = id;
-            this.Id_user = id_user;
-            this.Saldo = saldo;
-            this.Ultima_alteracao = ultima_alteracao;
+            this.id = id;
+            this.id_user = id_user;
+            this.saldo = saldo;
+            this.ultima_alteracao = ultima_alteracao;
         }
 
         public int Id { get => id; set => id = value; }

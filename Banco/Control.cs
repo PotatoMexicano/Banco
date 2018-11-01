@@ -38,7 +38,7 @@ namespace Banco
             MySqlDataReader r = command.ExecuteReader();
             if (r.Read())
             {
-                Usuario usuario = new Usuario(r.GetInt32(0), r.GetString(1), r.GetString(2), r.GetString(3), r.GetString(4), r.GetInt32(5), r.GetInt32(6), r.GetString(7), r.GetInt32(8), r.GetChar(9), r.GetInt32(10));
+                Usuario usuario = new Usuario(r.GetInt32(0), r.GetString(1), r.GetString(2), r.GetString(3), r.GetString(4), r.GetInt32(5), r.GetInt32(6), r.GetString(7), r.GetInt32(8), r.GetChar(9), r.GetInt32(10), r.GetDateTime(11));
                 conn.Close();
                 return usuario;
 
@@ -74,23 +74,24 @@ namespace Banco
 
         public static Conta Extrato(int id)
         {
-            MySqlCommand extrato = new MySqlCommand();
-            conn.Open();
-            extrato.Connection = conn;
-            extrato.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
-            extrato.CommandText = "SELECT * FROM corrente WHERE id_usuario = @id";
+                MySqlCommand extrato = new MySqlCommand();
+                conn.Open();
+                extrato.Connection = conn;
+                extrato.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+                extrato.CommandText = "SELECT * FROM corrente WHERE id_usuario = @id";
 
-            MySqlDataReader r = extrato.ExecuteReader();
-            if (r.Read())
-            {
-                Conta conta = new Conta(r.GetInt32(0), r.GetInt32(1), r.GetDouble(2), r.GetDateTime(3));
-                conn.Close();
-                return conta;
-            }
-            else{
-                conn.Close();
-                return null;
-            }
+                MySqlDataReader r = extrato.ExecuteReader();
+                if (r.Read())
+                {
+                    Conta conta = new Conta(r.GetInt32(0), r.GetInt32(1), r.GetDouble(2), r.GetDateTime(3));
+                    conn.Close();
+                    return conta;
+                }
+                else
+                {
+                    conn.Close();
+                    return null;
+                }
         }
 
         public static void Depositar(double valor, int id, int tipo)
@@ -113,14 +114,22 @@ namespace Banco
             conn.Close();
         }
 
-        public static void Sacar(int id, double valor)
+        public static void Sacar(int id, double valor, int tipo)
         {
             MySqlCommand sacar = new MySqlCommand();
             conn.Open();
             sacar.Connection = conn;
             sacar.Parameters.Add("@valor", MySqlDbType.Double).Value = valor;
             sacar.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
-            sacar.CommandText = "UPDATE corrente SET saldo = saldo - @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id";
+            if (tipo == 0)
+            {
+                sacar.CommandText = "UPDATE corrente SET saldo = saldo - @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id";
+            }
+            else
+            {
+                sacar.CommandText = "UPDATE poupança SET saldo = saldo - @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id";
+            }
+            
             sacar.ExecuteNonQuery();
             conn.Close();
         }

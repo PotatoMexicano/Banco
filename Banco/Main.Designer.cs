@@ -44,6 +44,8 @@
             this.label_saldo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label_hi = new System.Windows.Forms.Label();
+            this.correnteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.poupançaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +65,9 @@
             // 
             // saqueToolStripMenuItem
             // 
+            this.saqueToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.correnteToolStripMenuItem2,
+            this.poupançaToolStripMenuItem2});
             this.saqueToolStripMenuItem.Name = "saqueToolStripMenuItem";
             this.saqueToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.saqueToolStripMenuItem.Text = "Saque";
@@ -80,14 +85,14 @@
             // correnteToolStripMenuItem1
             // 
             this.correnteToolStripMenuItem1.Name = "correnteToolStripMenuItem1";
-            this.correnteToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
+            this.correnteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.correnteToolStripMenuItem1.Text = "Corrente";
             this.correnteToolStripMenuItem1.Click += new System.EventHandler(this.CorrenteToolStripMenuItem1_Click);
             // 
             // poupançaToolStripMenuItem1
             // 
             this.poupançaToolStripMenuItem1.Name = "poupançaToolStripMenuItem1";
-            this.poupançaToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
+            this.poupançaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.poupançaToolStripMenuItem1.Text = "Poupança";
             this.poupançaToolStripMenuItem1.Click += new System.EventHandler(this.PoupançaToolStripMenuItem1_Click);
             // 
@@ -103,14 +108,14 @@
             // correnteToolStripMenuItem
             // 
             this.correnteToolStripMenuItem.Name = "correnteToolStripMenuItem";
-            this.correnteToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.correnteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.correnteToolStripMenuItem.Text = "Corrente";
             this.correnteToolStripMenuItem.Click += new System.EventHandler(this.CorrenteToolStripMenuItem_Click);
             // 
             // poupançaToolStripMenuItem
             // 
             this.poupançaToolStripMenuItem.Name = "poupançaToolStripMenuItem";
-            this.poupançaToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.poupançaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.poupançaToolStripMenuItem.Text = "Poupança";
             this.poupançaToolStripMenuItem.Click += new System.EventHandler(this.PoupançaToolStripMenuItem_Click);
             // 
@@ -133,6 +138,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 247);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label3
             // 
@@ -184,6 +190,20 @@
             this.label_hi.TabIndex = 0;
             this.label_hi.Text = "Bem-Vindo Usuario";
             // 
+            // correnteToolStripMenuItem2
+            // 
+            this.correnteToolStripMenuItem2.Name = "correnteToolStripMenuItem2";
+            this.correnteToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.correnteToolStripMenuItem2.Text = "Corrente";
+            this.correnteToolStripMenuItem2.Click += new System.EventHandler(this.correnteToolStripMenuItem2_Click);
+            // 
+            // poupançaToolStripMenuItem2
+            // 
+            this.poupançaToolStripMenuItem2.Name = "poupançaToolStripMenuItem2";
+            this.poupançaToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.poupançaToolStripMenuItem2.Text = "Poupança";
+            this.poupançaToolStripMenuItem2.Click += new System.EventHandler(this.poupançaToolStripMenuItem2_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,5 +245,7 @@
         private System.Windows.Forms.ToolStripMenuItem poupançaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem correnteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem poupançaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem correnteToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem poupançaToolStripMenuItem2;
     }
 }
