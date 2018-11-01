@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.saqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.correnteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.poupançaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.depositoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.correnteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.poupançaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +46,9 @@
             this.label_saldo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label_hi = new System.Windows.Forms.Label();
-            this.correnteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.poupançaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.desligarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +59,8 @@
             this.saqueToolStripMenuItem,
             this.depositoToolStripMenuItem,
             this.extratoToolStripMenuItem,
-            this.dadosPessoaisToolStripMenuItem});
+            this.dadosPessoaisToolStripMenuItem,
+            this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -73,6 +77,20 @@
             this.saqueToolStripMenuItem.Text = "Saque";
             this.saqueToolStripMenuItem.Click += new System.EventHandler(this.SaqueToolStripMenuItem_Click);
             // 
+            // correnteToolStripMenuItem2
+            // 
+            this.correnteToolStripMenuItem2.Name = "correnteToolStripMenuItem2";
+            this.correnteToolStripMenuItem2.Size = new System.Drawing.Size(127, 22);
+            this.correnteToolStripMenuItem2.Text = "Corrente";
+            this.correnteToolStripMenuItem2.Click += new System.EventHandler(this.correnteToolStripMenuItem2_Click);
+            // 
+            // poupançaToolStripMenuItem2
+            // 
+            this.poupançaToolStripMenuItem2.Name = "poupançaToolStripMenuItem2";
+            this.poupançaToolStripMenuItem2.Size = new System.Drawing.Size(127, 22);
+            this.poupançaToolStripMenuItem2.Text = "Poupança";
+            this.poupançaToolStripMenuItem2.Click += new System.EventHandler(this.poupançaToolStripMenuItem2_Click);
+            // 
             // depositoToolStripMenuItem
             // 
             this.depositoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -85,14 +103,14 @@
             // correnteToolStripMenuItem1
             // 
             this.correnteToolStripMenuItem1.Name = "correnteToolStripMenuItem1";
-            this.correnteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.correnteToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
             this.correnteToolStripMenuItem1.Text = "Corrente";
             this.correnteToolStripMenuItem1.Click += new System.EventHandler(this.CorrenteToolStripMenuItem1_Click);
             // 
             // poupançaToolStripMenuItem1
             // 
             this.poupançaToolStripMenuItem1.Name = "poupançaToolStripMenuItem1";
-            this.poupançaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.poupançaToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
             this.poupançaToolStripMenuItem1.Text = "Poupança";
             this.poupançaToolStripMenuItem1.Click += new System.EventHandler(this.PoupançaToolStripMenuItem1_Click);
             // 
@@ -108,14 +126,14 @@
             // correnteToolStripMenuItem
             // 
             this.correnteToolStripMenuItem.Name = "correnteToolStripMenuItem";
-            this.correnteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.correnteToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.correnteToolStripMenuItem.Text = "Corrente";
             this.correnteToolStripMenuItem.Click += new System.EventHandler(this.CorrenteToolStripMenuItem_Click);
             // 
             // poupançaToolStripMenuItem
             // 
             this.poupançaToolStripMenuItem.Name = "poupançaToolStripMenuItem";
-            this.poupançaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.poupançaToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.poupançaToolStripMenuItem.Text = "Poupança";
             this.poupançaToolStripMenuItem.Click += new System.EventHandler(this.PoupançaToolStripMenuItem_Click);
             // 
@@ -190,19 +208,28 @@
             this.label_hi.TabIndex = 0;
             this.label_hi.Text = "Bem-Vindo Usuario";
             // 
-            // correnteToolStripMenuItem2
+            // sairToolStripMenuItem
             // 
-            this.correnteToolStripMenuItem2.Name = "correnteToolStripMenuItem2";
-            this.correnteToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.correnteToolStripMenuItem2.Text = "Corrente";
-            this.correnteToolStripMenuItem2.Click += new System.EventHandler(this.correnteToolStripMenuItem2_Click);
+            this.sairToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sairToolStripMenuItem1,
+            this.desligarToolStripMenuItem});
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.sairToolStripMenuItem.Text = "Sair";
             // 
-            // poupançaToolStripMenuItem2
+            // sairToolStripMenuItem1
             // 
-            this.poupançaToolStripMenuItem2.Name = "poupançaToolStripMenuItem2";
-            this.poupançaToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.poupançaToolStripMenuItem2.Text = "Poupança";
-            this.poupançaToolStripMenuItem2.Click += new System.EventHandler(this.poupançaToolStripMenuItem2_Click);
+            this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
+            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem1.Text = "Sair";
+            this.sairToolStripMenuItem1.Click += new System.EventHandler(this.sairToolStripMenuItem1_Click);
+            // 
+            // desligarToolStripMenuItem
+            // 
+            this.desligarToolStripMenuItem.Name = "desligarToolStripMenuItem";
+            this.desligarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.desligarToolStripMenuItem.Text = "Desligar";
+            this.desligarToolStripMenuItem.Click += new System.EventHandler(this.desligarToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -247,5 +274,8 @@
         private System.Windows.Forms.ToolStripMenuItem poupançaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem correnteToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem poupançaToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem desligarToolStripMenuItem;
     }
 }

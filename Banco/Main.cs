@@ -127,5 +127,23 @@ namespace Banco
                 Saque saque = new Saque(usuario, 1);
                 saque.ShowDialog();
         }
+
+        private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja sair ?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Login login = new Login();
+                Close();
+                
+            }
+        }
+
+        private void desligarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja desligar ?", "Desligar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 }
