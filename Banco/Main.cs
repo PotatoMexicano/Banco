@@ -23,6 +23,7 @@ namespace Banco
             Atualiza_saldo_geral();
             
         }
+
         public void Atualiza_saldo_geral()
         {
             if (usuario.Tipo == 0)
@@ -114,6 +115,11 @@ namespace Banco
                 correnteToolStripMenuItem2.Visible = false;
                 
             }
+
+            if (usuario.Id != 3)
+            {
+                desligarToolStripMenuItem.Visible = false;
+            }
         }
 
         private void correnteToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -144,6 +150,11 @@ namespace Banco
             {
                 Application.Exit();
             }
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

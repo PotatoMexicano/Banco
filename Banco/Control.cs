@@ -189,5 +189,36 @@ namespace Banco
             att.ExecuteNonQuery();
             conn.Close();
         }
+
+        public static void Remover_Conta(int id, string senha, string cpf, int tipo)
+        {
+            MySqlCommand rm = new MySqlCommand();
+            rm.Connection = conn;
+            conn.Open();
+            rm.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            rm.Parameters.Add("@senha", MySqlDbType.VarChar).Value = senha;
+            rm.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
+            rm.CommandText = "DELETE FROM usuarios WHERE id = @id AND senha = @senha AND cpf = @cpf";
+            rm.ExecuteNonQuery();
+
+
+            MySqlCommand rmc = new MySqlCommand();
+            rmc.Connection = conn;
+            rmc.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            if (tipo == 0)
+            {
+                rmc.CommandText = "DELETE FROM corrente WHERE id_usuario = @id";
+            }
+            else if (tipo == 1)
+            {
+                rmc.CommandText = "DELETE FROM poupança WHERE id_usuario = @id";
+            }
+            else if (tipo == 2)
+            {
+                rmc.CommandText = "DELETE FROM corrente WHERE id_usuario = @id;DELETE FROM poupança WHERE id_usuario = @id";
+            }
+            rmc.ExecuteNonQuery();
+
+        }
     }
 }

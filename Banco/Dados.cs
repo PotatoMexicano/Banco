@@ -21,6 +21,11 @@ namespace Banco
 
         private void Dados_Load(object sender, EventArgs e)
         {
+
+            if (usuario.Id == 3)
+            {
+                button1.Visible = false;
+            }
             label_conta.Text = usuario.Conta.ToString();
 
             label_agencia.Text = usuario.Agencia.ToString();
@@ -68,6 +73,58 @@ namespace Banco
 
 
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Excluir ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Conta conta_c, conta_p;
+                
+                bool empty = true;
+
+                switch (usuario.Tipo)
+                {
+                    case 0:
+                        conta_c = Control.Extrato(usuario.Id);
+                        if (conta_c.Saldo > 0)
+                        {
+                            empty = false;
+                        }
+                        break;
+                    case 1:
+                        conta_p = Control.Extrato_Poup(usuario.Id);
+                        if (conta_p.Saldo > 0)
+                        {
+                            empty = false;
+                        }
+                        break;
+                            case 2:
+                        conta_c = Control.Extrato(usuario.Id);
+                        conta_p = Control.Extrato_Poup(usuario.Id);
+                        if (conta_c.Saldo > 0 && conta_p.Saldo > 0)
+                        {
+                            empty = false;
+                        }
+                        break;
+                }
+                if (empty)
+                {
+                    Control.Remover_Conta(usuario.Id, usuario.Senha, usuario.Cpf, usuario.Tipo);
+                    Close();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("A conta ainda possui dinheiro");
+                }
+
+                
+            }
+            else
+            {
+
+            }
         }
     }
 }

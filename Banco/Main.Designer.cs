@@ -40,15 +40,15 @@
             this.correnteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.poupançaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dadosPessoaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.desligarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label_saldo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label_hi = new System.Windows.Forms.Label();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.desligarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -126,14 +126,14 @@
             // correnteToolStripMenuItem
             // 
             this.correnteToolStripMenuItem.Name = "correnteToolStripMenuItem";
-            this.correnteToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.correnteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.correnteToolStripMenuItem.Text = "Corrente";
             this.correnteToolStripMenuItem.Click += new System.EventHandler(this.CorrenteToolStripMenuItem_Click);
             // 
             // poupançaToolStripMenuItem
             // 
             this.poupançaToolStripMenuItem.Name = "poupançaToolStripMenuItem";
-            this.poupançaToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.poupançaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.poupançaToolStripMenuItem.Text = "Poupança";
             this.poupançaToolStripMenuItem.Click += new System.EventHandler(this.PoupançaToolStripMenuItem_Click);
             // 
@@ -143,6 +143,29 @@
             this.dadosPessoaisToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
             this.dadosPessoaisToolStripMenuItem.Text = "Dados pessoais";
             this.dadosPessoaisToolStripMenuItem.Click += new System.EventHandler(this.DadosPessoaisToolStripMenuItem_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sairToolStripMenuItem1,
+            this.desligarToolStripMenuItem});
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.sairToolStripMenuItem.Text = "Sair";
+            // 
+            // sairToolStripMenuItem1
+            // 
+            this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
+            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem1.Text = "Sair";
+            this.sairToolStripMenuItem1.Click += new System.EventHandler(this.sairToolStripMenuItem1_Click);
+            // 
+            // desligarToolStripMenuItem
+            // 
+            this.desligarToolStripMenuItem.Name = "desligarToolStripMenuItem";
+            this.desligarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.desligarToolStripMenuItem.Text = "Desligar";
+            this.desligarToolStripMenuItem.Click += new System.EventHandler(this.desligarToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -208,29 +231,6 @@
             this.label_hi.TabIndex = 0;
             this.label_hi.Text = "Bem-Vindo Usuario";
             // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sairToolStripMenuItem1,
-            this.desligarToolStripMenuItem});
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
-            this.sairToolStripMenuItem.Text = "Sair";
-            // 
-            // sairToolStripMenuItem1
-            // 
-            this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
-            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.sairToolStripMenuItem1.Text = "Sair";
-            this.sairToolStripMenuItem1.Click += new System.EventHandler(this.sairToolStripMenuItem1_Click);
-            // 
-            // desligarToolStripMenuItem
-            // 
-            this.desligarToolStripMenuItem.Name = "desligarToolStripMenuItem";
-            this.desligarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.desligarToolStripMenuItem.Text = "Desligar";
-            this.desligarToolStripMenuItem.Click += new System.EventHandler(this.desligarToolStripMenuItem_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,6 +246,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
+            this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
