@@ -22,14 +22,48 @@ namespace Banco
         private void Dados_Load(object sender, EventArgs e)
         {
             label_conta.Text = usuario.Conta.ToString();
+
             label_agencia.Text = usuario.Agencia.ToString();
-            label_tipo.Text = usuario.Tipo.ToString();
-            label_senha.Text = usuario.Senha.ToString();
+
+            switch (usuario.Tipo)
+            {
+                case 0:
+                    label_tipo.Text = "Conta Corrente";
+                    break;
+                case 1:
+                    label_tipo.Text = "Conta Poupança";
+                    break;
+                case 2:
+                    label_tipo.Text = "Conta Corrente/Poupança";
+                    break;
+            }
+
+            label_senha.Text = usuario.Senha.ToString() + " (Apenas didatico)";
+
             label_nome.Text = usuario.Nome.ToString();
+
             label_sobrenome.Text = usuario.Sobrenome.ToString();
-            label_cpf.Text = usuario.Cpf.ToString();
+
+           
+            char[] cpf = usuario.Cpf.ToString().ToCharArray();
+            int size = cpf.Count();
+            string mudado = usuario.Cpf.ToString().Remove(usuario.Cpf.ToString().Length - 1);
+            label_cpf.Text = mudado + "-" + cpf[size-1];
+
+
+
             label_rg.Text = usuario.Rg.ToString();
-            label_sexo.Text = usuario.Sexo.ToString();
+
+            
+            if (usuario.Sexo.ToString() =="M")
+            {
+                label_sexo.Text = "Masculino";
+            }
+            else
+            {
+                label_sexo.Text = "Feminino";
+            }
+
             label_idade.Text = usuario.Idade.ToString();   
 
 
