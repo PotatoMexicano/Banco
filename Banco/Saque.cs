@@ -45,7 +45,7 @@ namespace Banco
                 if (!(valor > conta.Saldo))
                 {
                     if (MessageBox.Show("Confirma ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                        Control.Sacar(usuario.Id, valor, tipo);
+                        Control.Sacar(usuario.Id, valor, tipo, usuario.Conta);
                         atualiza_label_saldo();
                     }
                     else

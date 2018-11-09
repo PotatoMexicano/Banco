@@ -58,12 +58,12 @@ namespace Banco
                     if (MessageBox.Show("Confirma ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         if (tipo == 0) {
-                            Control.Depositar(deposito, conta.Id_user, 0);
+                            Control.Depositar(deposito, conta.Id_user, 0, usuario.Conta);
                             atualiza_label_saldo();
                         }
                         else
                         {
-                            Control.Depositar(deposito, conta.Id_user, 1);
+                            Control.Depositar(deposito, conta.Id_user, 1, usuario.Conta);
                             atualiza_label_saldo();
 
                         }

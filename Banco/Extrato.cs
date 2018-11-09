@@ -26,6 +26,15 @@ namespace Banco
                 Conta conta = Control.Extrato_Poup(usuario.Id);
                 label_money.Text = "R$ " + Convert.ToString(conta.Saldo);
             }
+
+            dataGridView1.DataSource = Control.Historico_Corrente(usuario.Id, usuario.Conta);
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[1].Visible = false;
+            dataGridView1.Columns[2].Visible = false;
+            dataGridView1.Columns[3].HeaderText = "Tipo";
+            dataGridView1.Columns[4].HeaderText = "Valor";
+            dataGridView1.Columns[5].HeaderText = "Data";
+
         }
 
         private void Extrato_FormClosed(object sender, FormClosedEventArgs e)
@@ -34,6 +43,11 @@ namespace Banco
 
         private void Extrato_Load(object sender, EventArgs e)
         {
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

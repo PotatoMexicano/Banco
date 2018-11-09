@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Banco
 {
@@ -117,40 +118,51 @@ namespace Banco
                 }
         }
 
-        public static void Depositar(double valor, int id, int tipo)
+        public static DataTable Historico_Corrente(int id, int conta)
+        {
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM extratos WHERE id_usuario = "+id+" AND numero_conta = "+conta+" ORDER BY ultimo_acesso DESC;", conn);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+
+        }
+
+        public static void Depositar(double valor, int id, int tipo, int conta)
         {
             MySqlCommand dep = new MySqlCommand();
             conn.Open();
             dep.Connection = conn;
             dep.Parameters.Add("@valor", MySqlDbType.Double).Value = valor;
             dep.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            dep.Parameters.Add("@conta", MySqlDbType.Int32).Value = conta;
             if (tipo == 0 )
             {
-                dep.CommandText = "UPDATE corrente SET saldo = saldo + @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id";
+                dep.CommandText = "UPDATE corrente SET saldo = saldo + @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id; INSERT INTO extratos  VALUES ('', @id, @conta, 'Deposito', @valor, CURRENT_TIMESTAMP);";
             }
             else
             {
-                dep.CommandText = "UPDATE poupança SET saldo = saldo + @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id";
+                dep.CommandText = "UPDATE poupança SET saldo = saldo + @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id; INSERT INTO extratos  VALUES ('', @id, @conta, 'Deposito', @valor, CURRENT_TIMESTAMP);";
             }
             
             dep.ExecuteNonQuery();
             conn.Close();
         }
 
-        public static void Sacar(int id, double valor, int tipo)
+        public static void Sacar(int id, double valor, int tipo, int conta)
         {
             MySqlCommand sacar = new MySqlCommand();
             conn.Open();
             sacar.Connection = conn;
             sacar.Parameters.Add("@valor", MySqlDbType.Double).Value = valor;
             sacar.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            sacar.Parameters.Add("@conta", MySqlDbType.Int32).Value = conta;
             if (tipo == 0)
             {
-                sacar.CommandText = "UPDATE corrente SET saldo = saldo - @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id";
+                sacar.CommandText = "UPDATE corrente SET saldo = saldo - @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id; INSERT INTO extratos  VALUES ('', @id, @conta, 'Saque', @valor, CURRENT_TIMESTAMP);";
             }
             else
             {
-                sacar.CommandText = "UPDATE poupança SET saldo = saldo - @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id";
+                sacar.CommandText = "UPDATE poupança SET saldo = saldo - @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id; INSERT INTO extratos  VALUES ('', @id, @conta, 'Saque', @valor, CURRENT_TIMESTAMP);";
             }
             
             sacar.ExecuteNonQuery();
