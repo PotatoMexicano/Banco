@@ -21,7 +21,7 @@ namespace Banco
                 Conta conta = Control.Extrato(usuario.Id);
                 label_money.Text = "R$ " + Convert.ToString(conta.Saldo);
             }
-            else
+            else if(i == 1)
             {
                 Conta conta = Control.Extrato_Poup(usuario.Id);
                 label_money.Text = "R$ " + Convert.ToString(conta.Saldo);

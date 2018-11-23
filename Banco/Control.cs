@@ -118,6 +118,28 @@ namespace Banco
                 }
         }
 
+        public static Conta Extrato_Poup(int id)
+        {
+            MySqlCommand poup = new MySqlCommand();
+            conn.Open();
+            poup.Connection = conn;
+            poup.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            poup.CommandText = "SELECT * FROM poupança WHERE id_usuario = @id";
+
+            MySqlDataReader r = poup.ExecuteReader();
+            if (r.Read())
+            {
+                Conta conta = new Conta(r.GetInt32(0), r.GetInt32(1), r.GetDouble(2), r.GetDateTime(3));
+                conn.Close();
+                return conta;
+            }
+            else
+            {
+                conn.Close();
+                return null;
+            }
+        }
+
         public static DataTable Historico_Corrente(int id, int conta)
         {
             MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM extratos WHERE id_usuario = "+id+" AND numero_conta = "+conta+" ORDER BY ultimo_acesso DESC;", conn);
@@ -167,28 +189,6 @@ namespace Banco
             
             sacar.ExecuteNonQuery();
             conn.Close();
-        }
-
-        public static Conta Extrato_Poup(int id)
-        {
-            MySqlCommand poup = new MySqlCommand();
-            conn.Open();
-            poup.Connection = conn;
-            poup.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
-            poup.CommandText = "SELECT * FROM poupança WHERE id_usuario = @id";
-
-            MySqlDataReader r = poup.ExecuteReader();
-            if (r.Read())
-            {
-                Conta conta = new Conta(r.GetInt32(0), r.GetInt32(1), r.GetDouble(2), r.GetDateTime(3));
-                conn.Close();
-                return conta;
-            }
-            else
-            {
-                conn.Close();
-                return null;
-            }
         }
 
         public static void Atualiza_Data_Login(int id)

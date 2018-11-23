@@ -92,12 +92,14 @@ namespace Banco
         {
             Deposito deposito = new Deposito(usuario, 0);
             deposito.ShowDialog();
+            Atualiza_saldo_geral();
         }
 
         private void PoupançaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Deposito deposito = new Deposito(usuario, 1);
             deposito.ShowDialog();
+            Atualiza_saldo_geral();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -124,14 +126,16 @@ namespace Banco
 
         private void correnteToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-                Saque saque = new Saque(usuario, 0);
-                saque.ShowDialog();
+            Saque saque = new Saque(usuario, 0);
+            saque.ShowDialog();
+            Atualiza_saldo_geral();
         }
 
         private void poupançaToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-                Saque saque = new Saque(usuario, 1);
-                saque.ShowDialog();
+            Saque saque = new Saque(usuario, 1);
+            saque.ShowDialog();
+            Atualiza_saldo_geral();
         }
 
         private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
