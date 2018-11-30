@@ -25,17 +25,25 @@ namespace Banco
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            Usuario usuario = Control.Login(Convert.ToInt32(txtBox_agencia.Text), Convert.ToInt32(textBox_Conta.Text), textBox_senha.Text);
-            if (usuario != null)
+            if (!(txtBox_agencia.Text.Equals("") || textBox_Conta.Text.Equals("") || textBox_senha.Text.Equals("")))
             {
-                Control.Atualiza_Data_Login(usuario.Id);
-                Main menu = new Main(usuario);
-                this.Hide();
-                menu.ShowDialog();
+
+                Usuario usuario = Control.Login(Convert.ToInt32(txtBox_agencia.Text), Convert.ToInt32(textBox_Conta.Text), textBox_senha.Text);
+                if (usuario != null)
+                {
+                    Control.Atualiza_Data_Login(usuario.Id);
+                    Main menu = new Main(usuario);
+                    this.Hide();
+                    menu.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("NO");
+                }
             }
             else
             {
-                MessageBox.Show("NO");
+                MessageBox.Show("Não");
             }
         }
 

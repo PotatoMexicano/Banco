@@ -33,16 +33,22 @@ namespace Banco
 
             Random rnd = new Random();
             int conta = rnd.Next(1111111, 9999999);
-            
 
-            Control.Cadastrar(txt_nome.Text, txt_sobrenome.Text, txt_cpf.Text, txt_rg.Text, Convert.ToInt32(txt_agencia.Text), txt_senha.Text, tipo, sexo, Convert.ToInt32(txt_idade.Text), conta);
-            Usuario usuario = Control.Login(Convert.ToInt32(txt_agencia.Text), conta, txt_senha.Text);
-            Control.Criar_Conta(tipo, usuario.Id);
-            MessageBox.Show("Sua conta é: "+conta);
+            if (!(txt_nome.Text.Equals("") || txt_sobrenome.Text.Equals("") || txt_cpf.Text.Equals("") || txt_rg.Text.Equals("")|| txt_agencia.Text.Equals("") || txt_senha.Text.Equals("") || combo_tipo.Text.Equals("") || combo_sexo.Text.Equals("") || txt_idade.Text.Equals("")))
+            {
+                Control.Cadastrar(txt_nome.Text, txt_sobrenome.Text, txt_cpf.Text, txt_rg.Text, Convert.ToInt32(txt_agencia.Text), txt_senha.Text, tipo, sexo, Convert.ToInt32(txt_idade.Text), conta);
+                Usuario usuario = Control.Login(Convert.ToInt32(txt_agencia.Text), conta, txt_senha.Text);
+                Control.Criar_Conta(tipo, usuario.Id);
+                MessageBox.Show("Sua conta é: " + conta);
 
-            Login login = new Login();
-            this.Hide();
-            login.ShowDialog();
+                Login login = new Login();
+                this.Hide();
+                login.ShowDialog();
+            }
+            else{
+                MessageBox.Show("Não tente me enganar");
+            }
+           
         }
     }
 }

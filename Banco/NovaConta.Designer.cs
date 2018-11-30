@@ -55,7 +55,6 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.txt_rg = new System.Windows.Forms.TextBox();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.txt_agencia = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.txt_senha = new System.Windows.Forms.TextBox();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -68,6 +67,7 @@
             this.txt_idade = new System.Windows.Forms.TextBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.txt_agencia = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -361,15 +361,6 @@
             this.panel12.Size = new System.Drawing.Size(253, 39);
             this.panel12.TabIndex = 11;
             // 
-            // txt_agencia
-            // 
-            this.txt_agencia.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_agencia.Location = new System.Drawing.Point(3, 7);
-            this.txt_agencia.MaxLength = 4;
-            this.txt_agencia.Name = "txt_agencia";
-            this.txt_agencia.Size = new System.Drawing.Size(221, 22);
-            this.txt_agencia.TabIndex = 12;
-            // 
             // panel13
             // 
             this.panel13.Controls.Add(this.txt_senha);
@@ -399,6 +390,7 @@
             // 
             // combo_tipo
             // 
+            this.combo_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_tipo.FormattingEnabled = true;
             this.combo_tipo.Items.AddRange(new object[] {
             "Corrente",
@@ -406,7 +398,7 @@
             "Ambos"});
             this.combo_tipo.Location = new System.Drawing.Point(3, 10);
             this.combo_tipo.Name = "combo_tipo";
-            this.combo_tipo.Size = new System.Drawing.Size(197, 21);
+            this.combo_tipo.Size = new System.Drawing.Size(221, 21);
             this.combo_tipo.TabIndex = 0;
             // 
             // panel17
@@ -420,13 +412,14 @@
             // 
             // combo_sexo
             // 
+            this.combo_sexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_sexo.FormattingEnabled = true;
             this.combo_sexo.Items.AddRange(new object[] {
             "Masculino",
             "Feminino"});
             this.combo_sexo.Location = new System.Drawing.Point(3, 9);
             this.combo_sexo.Name = "combo_sexo";
-            this.combo_sexo.Size = new System.Drawing.Size(197, 21);
+            this.combo_sexo.Size = new System.Drawing.Size(221, 21);
             this.combo_sexo.TabIndex = 10;
             // 
             // panel18
@@ -487,6 +480,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txt_agencia
+            // 
+            this.txt_agencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txt_agencia.FormattingEnabled = true;
+            this.txt_agencia.Items.AddRange(new object[] {
+            "1001",
+            "1002",
+            "1003",
+            "1004",
+            "1005"});
+            this.txt_agencia.Location = new System.Drawing.Point(4, 11);
+            this.txt_agencia.Name = "txt_agencia";
+            this.txt_agencia.Size = new System.Drawing.Size(220, 21);
+            this.txt_agencia.TabIndex = 0;
+            // 
             // NovaConta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -524,7 +532,6 @@
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel14.ResumeLayout(false);
@@ -564,7 +571,6 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.TextBox txt_rg;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.TextBox txt_agencia;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.TextBox txt_senha;
         private System.Windows.Forms.Panel panel14;
@@ -579,5 +585,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.TextBox txt_idade;
+        private System.Windows.Forms.ComboBox txt_agencia;
     }
 }
