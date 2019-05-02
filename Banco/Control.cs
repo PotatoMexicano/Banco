@@ -13,8 +13,8 @@ namespace Banco
 
 
 
-        static MySqlConnection conn2 = new MySqlConnection("server=192.168.0.104;port=3306;User Id=oihi;database=u736501739_bank;password=12345678");
-        static MySqlConnection conn = new MySqlConnection("server=oihi.zapto.org;port=3306;User Id=oihi;database=u736501739_bank;password=12345678");
+        static MySqlConnection conn2 = new MySqlConnection("server=192.168.0.104;port=3306;User Id=bancario;database=u736501739_bank;password=12345678");
+        static MySqlConnection conn = new MySqlConnection("server=oihi.zapto.org;port=3306;User Id=bancario;database=u736501739_bank;password=12345678");
 
         public static bool Conectar()
         {
