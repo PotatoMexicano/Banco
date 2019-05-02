@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,12 +17,23 @@ namespace Banco
         Conta conta_corrente;
         Conta conta_poupança;
         double total;
+        bool updateMethod = false;
+
         public Main(Usuario user)
         {
             usuario = user;
             InitializeComponent();
             Atualiza_saldo_geral();
             
+            
+        }
+        public void Update(bool update)
+        {
+            while (update)
+            {
+                Atualiza_saldo_geral();
+                Thread.Sleep(5000);
+            }
         }
 
         public void Atualiza_saldo_geral()
@@ -159,6 +171,19 @@ namespace Banco
         private void Main_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void LigarAtualizaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (updateMethod)
+            {
+                updateMethod = false;
+            }
+            else
+            {
+                updateMethod = true;
+            }
+            Update(updateMethod);
         }
     }
 }

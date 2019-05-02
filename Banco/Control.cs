@@ -10,23 +10,36 @@ namespace Banco
 {
     static class Control
     {
-        static MySqlConnection conn = new MySqlConnection("server=sql157.main-hosting.eu;port=3306;User Id=u736501739_team;database=u736501739_bank;password=Pimenta10");
+
+
+
+        static MySqlConnection conn2 = new MySqlConnection("server=192.168.0.104;port=3306;User Id=oihi;database=u736501739_bank;password=12345678");
+        static MySqlConnection conn = new MySqlConnection("server=oihi.zapto.org;port=3306;User Id=oihi;database=u736501739_bank;password=12345678");
 
         public static bool Conectar()
         {
             try
             {
                 conn.Open();
+                conn.Close();
                 return true;
             }
             catch (Exception)
             {
-                return false;
+                try {
+                    conn2.Open();
+                    conn = conn2;
+                    conn.Close();
+                    return true;
+                } catch {
+                    return false;
+                }
             }
         }
 
         public static Usuario Login(int agencia, int conta, string senha)
         {
+            Conectar();
             MySqlCommand command = new MySqlCommand();
             conn.Open();
             command.Connection = conn;
@@ -86,11 +99,11 @@ namespace Banco
 
             }else if (tipo == 2)
             {
-                cc.CommandText = "INSERT INTO corrente VALUES ('',@id, 0, CURRENT_TIMESTAMP); INSERT INTO poupança VALUES ('',@id, 0, CURRENT_TIMESTAMP)";
+                cc.CommandText = "INSERT INTO corrente VALUES ('',@id, 0, CURRENT_TIMESTAMP); INSERT INTO poupanca VALUES ('',@id, 0, CURRENT_TIMESTAMP)";
             }
             else
             {
-                cc.CommandText = "INSERT INTO poupança VALUES ('',@id, 0, CURRENT_TIMESTAMP)";
+                cc.CommandText = "INSERT INTO poupanca VALUES ('',@id, 0, CURRENT_TIMESTAMP)";
             }
             cc.ExecuteNonQuery();
             conn.Close();
@@ -124,7 +137,7 @@ namespace Banco
             conn.Open();
             poup.Connection = conn;
             poup.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
-            poup.CommandText = "SELECT * FROM poupança WHERE id_usuario = @id";
+            poup.CommandText = "SELECT * FROM poupanca WHERE id_usuario = @id";
 
             MySqlDataReader r = poup.ExecuteReader();
             if (r.Read())
@@ -163,7 +176,7 @@ namespace Banco
             }
             else
             {
-                dep.CommandText = "UPDATE poupança SET saldo = saldo + @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id; INSERT INTO extratos  VALUES ('', @id, @conta, 'Deposito', @valor, CURRENT_TIMESTAMP);";
+                dep.CommandText = "UPDATE poupanca SET saldo = saldo + @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id; INSERT INTO extratos  VALUES ('', @id, @conta, 'Deposito', @valor, CURRENT_TIMESTAMP);";
             }
             
             dep.ExecuteNonQuery();
@@ -184,7 +197,7 @@ namespace Banco
             }
             else
             {
-                sacar.CommandText = "UPDATE poupança SET saldo = saldo - @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id; INSERT INTO extratos  VALUES ('', @id, @conta, 'Saque', @valor, CURRENT_TIMESTAMP);";
+                sacar.CommandText = "UPDATE poupanca SET saldo = saldo - @valor, ultima_alteracao = CURRENT_TIMESTAMP WHERE id_usuario = @id; INSERT INTO extratos  VALUES ('', @id, @conta, 'Saque', @valor, CURRENT_TIMESTAMP);";
             }
             
             sacar.ExecuteNonQuery();
@@ -223,11 +236,11 @@ namespace Banco
             }
             else if (tipo == 1)
             {
-                rmc.CommandText = "DELETE FROM poupança WHERE id_usuario = @id";
+                rmc.CommandText = "DELETE FROM poupanca WHERE id_usuario = @id";
             }
             else if (tipo == 2)
             {
-                rmc.CommandText = "DELETE FROM corrente WHERE id_usuario = @id;DELETE FROM poupança WHERE id_usuario = @id";
+                rmc.CommandText = "DELETE FROM corrente WHERE id_usuario = @id;DELETE FROM poupanca WHERE id_usuario = @id";
             }
             rmc.ExecuteNonQuery();
 
